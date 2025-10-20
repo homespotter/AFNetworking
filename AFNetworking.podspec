@@ -1,12 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'AFNetworking'
-  s.version  = '4.0.1'
+  s.version  = '4.0.2'
   s.license  = 'MIT'
   s.summary  = 'A delightful networking framework for Apple platforms.'
-  s.homepage = 'https://github.com/AFNetworking/AFNetworking'
-  s.social_media_url = 'https://twitter.com/AFNetworking'
-  s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
-  s.source   = { :git => 'https://github.com/AFNetworking/AFNetworking.git', :tag => s.version }
+  s.homepage = 'https://github.com/homespotter/AFNetworking'
+  s.authors  = { 'Edwin Cardenas' => 'ecardenas@lwolf.com' }
+  s.source   = { :git => 'https://github.com/homespotter/AFNetworking', :tag => s.version }
 
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.10'
@@ -20,12 +19,18 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AFNetworking/AFNetworking.h'
 
+  s.subspec 'PrivacyResources' do |ss|
+    ss.resource_bundles = { 'AFNetworking' => 'AFNetworking/*.xcprivacy' }
+  end
+
   s.subspec 'Serialization' do |ss|
     ss.source_files = 'AFNetworking/AFURL{Request,Response}Serialization.{h,m}'
+    ss.dependency 'AFNetworking/PrivacyResources'
   end
 
   s.subspec 'Security' do |ss|
     ss.source_files = 'AFNetworking/AFSecurityPolicy.{h,m}'
+    ss.dependency 'AFNetworking/PrivacyResources'
   end
 
   s.subspec 'Reachability' do |ss|
@@ -34,6 +39,7 @@ Pod::Spec.new do |s|
     ss.tvos.deployment_target = '9.0'
 
     ss.source_files = 'AFNetworking/AFNetworkReachabilityManager.{h,m}'
+    ss.dependency 'AFNetworking/PrivacyResources'
   end
 
   s.subspec 'NSURLSession' do |ss|
