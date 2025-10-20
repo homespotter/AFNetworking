@@ -1,7 +1,7 @@
 # AFNetworking Privacy Manifest Fork
 
-> This fork includes the required **Privacy Manifest** file to comply with Apple’s App Store review guidelines. It serves as a temporary solution while the ongoing migration to native iOS networking APIs is completed.
->
+This fork includes the required **Privacy Manifest** file to comply with Apple’s App Store review guidelines. It serves as a temporary solution while the ongoing migration to native iOS networking APIs is completed.
+
 > ⚠️ **Important:** The iOS application currently depends on this fork. **Do not modify or delete** this repository until the migration fully removes AFNetworking from the codebase.
 
 ## AFNetworking is Deprecated
